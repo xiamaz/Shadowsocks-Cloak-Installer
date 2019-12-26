@@ -194,6 +194,7 @@ if [ -d "/etc/cloak" ]; then
 				ckuid=$ckbuid
 				PUBLIC_IP="$(curl https://api.ipify.org -sS)"
 				Password=$(jq -r '.password' <'/etc/shadowsocks-libev/config.json')
+				cipher=$(jq -r '.method' <'/etc/shadowsocks-libev/config.json')
 				ShowConnectionInfo
 			fi
 			echo "Sample file saved at /etc/cloak/$ckclient_name.json"
